@@ -14,13 +14,18 @@ function increaseCounter () {
   counter++
   numDisplay.innerHTML = counter
 
-  if (counter % 2 != 0) {
+  if (counter % 15 === 0) {
+    createDiv(divisible15)
+  } else if (counter % 5 === 0) {
+    createDiv(divisible5)
+  } else if (counter % 3 === 0) {
+    createDiv(divisible3)
+  } else if (counter % 2 != 0) {
     createDiv(oddDiv)
-  }
-
-  if (counter % 2 === 0) {
+  } else if (counter % 2 === 0) {
     createDiv(evenDiv)
   }
+  
 }
 
 function createDiv(appendTo) {
