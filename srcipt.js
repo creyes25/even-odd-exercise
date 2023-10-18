@@ -5,6 +5,8 @@ const evenDiv = document.querySelector('.even')
 const divisible3 = document.querySelector('.divisible3')
 const divisible5 = document.querySelector('.divisible5')
 const divisible15 = document.querySelector('.divisible15')
+const numHolder = document.querySelector('.num-holder')
+
 
 
 let counter = 0
@@ -31,16 +33,19 @@ function increaseCounter () {
 function createDiv(appendTo) {
   const newDiv = document.createElement('div')
   newDiv.className = 'new-div flex align-items'
-  const newDivCont = document.querySelector('.new-div')
+
   const newH2 = document.createElement('h2')
-  newH2.className = 'new-num'
-  
+
   newDiv.appendChild(newH2)
 
   appendTo.appendChild(newDiv)
   newH2.innerHTML = counter
-
 }
 
 
 numCont.addEventListener('click', increaseCounter)
+numHolder.addEventListener('click', (evt) => {
+  if (evt.target.className.includes('new-div')) {
+    evt.target.remove()
+  }
+})
